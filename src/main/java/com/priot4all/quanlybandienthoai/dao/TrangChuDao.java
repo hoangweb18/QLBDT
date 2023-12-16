@@ -1,0 +1,18 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.priot4all.quanlybandienthoai.dao;
+
+import com.priot4all.quanlybandienthoai.bean.ThongTinDTBean;
+import java.util.List;
+
+/**
+ *
+ * @author admin
+ */
+public interface TrangChuDao {
+    
+    public List<ThongTinDTBean> getListByThongTinDT();
+    
+}
