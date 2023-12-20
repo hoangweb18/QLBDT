@@ -15,7 +15,17 @@ public interface QuanLyBHService {
     
     public List<QuanLyBH> getList();
     
-    public List<QuanLyBH> getAllList();
+    public List<QuanLyBH> getAllLists();
     
-    public String getTenKhachHangByIdClient(int idClient);
+    public List<Integer> getIdsSmartPhoneList();
+    
+    public List<Integer> getIdClientList();
+    
+    public int create(QuanLyBH quanLyBH);
+    
+    public int createBill(QuanLyBH quanLyBH);
+    
+    public int updateBill(QuanLyBH quanLyBH);
+    
+    public int deleteRecord(QuanLyBH quanLyBH);
 }

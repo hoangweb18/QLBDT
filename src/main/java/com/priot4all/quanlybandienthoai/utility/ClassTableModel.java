@@ -64,10 +64,10 @@ public class ClassTableModel {
             obj = new Object[columns];
             obj[0] = bill.getIdBill();
             obj[1] = bill.getIdClient();
-            obj[2] = (i + 1);// số thứ tự
-            obj[3] = bill.getNamesmartPhone();
+            obj[2] = bill.getIdSmartPhone();
+            obj[3] = (i + 1);// số thứ tự
             obj[4] = bill.getDate();
-            obj[5] = bill.getTotalPrice();
+            obj[5] = bill.getQuantityPurchased();
             dtm.addRow(obj);
         }
     }
@@ -89,18 +89,11 @@ public class ClassTableModel {
         for (int i = 0; i < rows; i++) {
             QuanLyBH bill = listItem.get(i);
             obj = new Object[columns];
-            obj[0] = bill.getIdBill();
-            obj[1] = bill.getIdClient();
-            obj[2] = i + 1; // Số thứ tự hàng (có thể xóa nếu không cần)
-            obj[3] = bill.getNameClient(); // Thêm tên khách hàng
-            obj[4] = bill.getNumberPhoneClient(); // Thêm số điện thoại khách hàng
-            obj[5] = bill.getNamesmartPhone();// Thêm tên smartphone
-            obj[6] = bill.getQuantityPurchased(); // Thêm số lượng mua
-            obj[7] = bill.getCapacity(); // Thêm dung lượng
-            obj[8] = bill.getColor(); // Thêm màu sắc
-            obj[9] = bill.getDate();
-            obj[10] = bill.getPrice(); // Thêm giá
-            obj[11] = bill.getTotalPrice();
+            obj[0] = i + 1; // Số thứ tự hàng (có thể xóa nếu không cần)
+            obj[1] = bill.getNamesmartPhone();// Thêm tên smartphone
+            obj[2] = bill.getCategory();
+            obj[3] = bill.getCapacity(); // Thêm dung lượng
+            obj[4] = bill.getColor(); // Thêm màu sắc
             dtm.addRow(obj);
         }
     }

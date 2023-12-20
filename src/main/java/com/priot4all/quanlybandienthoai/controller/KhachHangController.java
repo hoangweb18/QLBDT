@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -29,6 +31,11 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -40,6 +47,7 @@ public class KhachHangController {
     private JButton btnAdd;
     private JTextField jtfSearch;
     private JButton btnDelete;
+    private JButton btnPrint;
     
     private KhachHangService khachHangService = null;
     
@@ -47,12 +55,12 @@ public class KhachHangController {
     
     private TableRowSorter<TableModel> rowSorter = null;
 
-    public KhachHangController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch, JButton btnDelete) {
+    public KhachHangController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch, JButton btnDelete,JButton btnPrint) {
         this.jpnView = jpnView;
         this.btnAdd = btnAdd;
         this.jtfSearch = jtfSearch;
         this.btnDelete = btnDelete;
-        
+        this.btnPrint = btnPrint;
         
         this.khachHangService = new KhachHangServiceImpl();
     }
@@ -164,10 +172,10 @@ public class KhachHangController {
                                        System.out.println("Người dùng đã hủy xóa.");
                                    }
                        } else {
-                                  System.out.println("IdSmartPhone không được chọn!"); 
+                                  System.out.println("IdClient không được chọn!"); 
                                   JOptionPane.showMessageDialog(
                                    null,
-                                   "Vui lòng chọn một IdSmartPhone trên bảng để thực hiện hành động!",
+                                   "Vui lòng chọn một idClient trên bảng để thực hiện hành động!",
                                    "Cảnh báo",
                                    JOptionPane.WARNING_MESSAGE
                                );
@@ -209,8 +217,58 @@ public class KhachHangController {
                  frame.setResizable(false);
                  frame.setVisible(true);
             }
+        });
+        btnPrint.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet spreadsheet = workbook.createSheet("Khách Hàng");
             
-           
+            XSSFRow row = null;
+            Cell cell = null;
+            
+            row = spreadsheet.createRow((short) 2);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Danh Sách khách hàng");
+            
+            row = spreadsheet.createRow((short) 3);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Mã khách hàng");
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("STT");
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("Tên khách hàng");
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("Số điện thoại");
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue("Trạng thái");
+            
+            KhachHangService khachHangService = new KhachHangServiceImpl();
+            
+            List<KhachHang> listItem = khachHangService.getList();
+            
+            for (int i = 0; i < listItem.size(); i++) {
+            KhachHang khachHang = listItem.get(i);
+            row = spreadsheet.createRow((short) 4 + i);
+            row.setHeight((short) 400);
+            row.createCell(0).setCellValue(khachHang.getIdClient());
+            row.createCell(1).setCellValue(i + 1);
+            row.createCell(2).setCellValue(khachHang.getNameClient());
+            row.createCell(3).setCellValue(khachHang.getNumberPhone());
+            row.createCell(4).setCellValue(khachHang.getPurchaseStatus());
+            }
+            
+            FileOutputStream out = new FileOutputStream(new File("D:/KhachHang.xlsx"));
+            workbook.write(out);
+            out.close();
+            JOptionPane.showMessageDialog(null, "Đã Xuất file thành công", "Thông báo",JOptionPane.OK_CANCEL_OPTION );
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            }
         });
     }
 }

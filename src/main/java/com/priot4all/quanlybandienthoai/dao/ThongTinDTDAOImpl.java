@@ -107,10 +107,4 @@ public class ThongTinDTDAOImpl implements ThongTinDTDAO {
         }
         return 1;
     }
-
-    
-    public static void main(String[] args) {
-        ThongTinDTDAO thongTinDTDAO = new ThongTinDTDAOImpl();
-        System.out.println(thongTinDTDAO.getList());
-    }
 }

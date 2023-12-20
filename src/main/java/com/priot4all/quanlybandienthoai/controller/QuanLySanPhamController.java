@@ -20,6 +20,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import javax.security.auth.Refreshable;
 import javax.swing.JButton;
@@ -34,6 +37,11 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 
@@ -46,7 +54,7 @@ public class QuanLySanPhamController {
     private JButton btnAdd;
     private JTextField jtfSearch;
     private JButton btnDelete;
-    private JButton btnRefresh;
+    private JButton btnPrint;
     
     
     private ThongTinDTService thongTinDTService = null; 
@@ -55,13 +63,12 @@ public class QuanLySanPhamController {
     
     private TableRowSorter<TableModel> rowSorter = null;
 
-    public QuanLySanPhamController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch, JButton btnDelete,JButton btnRefresh) {
+    public QuanLySanPhamController(JPanel jpnView, JButton btnAdd, JTextField jtfSearch, JButton btnDelete,JButton btnPrint) {
         this.jpnView = jpnView;
         this.btnAdd = btnAdd;
         this.jtfSearch = jtfSearch;
-        
         this.btnDelete = btnDelete;
-        this.btnRefresh = btnRefresh;
+        this.btnPrint = btnPrint;
         
         this.thongTinDTService = new ThongTinDTServiceImpl();
     }
@@ -243,12 +250,66 @@ public class QuanLySanPhamController {
          
          
          
-        btnRefresh.addActionListener(new ActionListener() {
+        btnPrint.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Gọi hàm làm mới JTable
-      
-            setDateToTable();
+            // Gọi hàm làm mới Print
+            try {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet spreadsheet = workbook.createSheet("Điện thoại");
+            
+            XSSFRow row = null;
+            Cell cell = null;
+            
+            row = spreadsheet.createRow((short) 2);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Danh Sách Điện Thoại");
+            
+            row = spreadsheet.createRow((short) 3);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Mã điện thoại");
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("STT");
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("Tên điện thoại");
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("Số lượng");
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue("Đơn giá");
+            cell = row.createCell(5, CellType.STRING);
+            cell.setCellValue("Hãng sản xuất");
+            cell = row.createCell(6, CellType.STRING);
+            cell.setCellValue("Dung lượng");
+            cell = row.createCell(7,CellType.STRING);
+            cell.setCellValue("Màu sắc");
+            
+            ThongTinDTService thongTinDTService = new ThongTinDTServiceImpl();
+            
+            List<ThongTinDT> listItem = thongTinDTService.getList();
+            
+            for (int i = 0; i < listItem.size(); i++) {
+            ThongTinDT thongTinDT = listItem.get(i);
+            row = spreadsheet.createRow((short) 4 + i);
+            row.setHeight((short) 400);
+            row.createCell(0).setCellValue(thongTinDT.getIdSmartPhone());
+            row.createCell(1).setCellValue(i + 1);
+            row.createCell(2).setCellValue(thongTinDT.getNameSmartPhone());
+            row.createCell(3).setCellValue(thongTinDT.getQuantityInventory());
+            row.createCell(4).setCellValue(thongTinDT.getPrice());
+            row.createCell(5).setCellValue(thongTinDT.getCategory());
+            row.createCell(6).setCellValue(thongTinDT.getCapacity());
+            row.createCell(7).setCellValue(thongTinDT.getColor());
+            }
+            
+            FileOutputStream out = new FileOutputStream(new File("D:/ThongTinDT.xlsx"));
+            workbook.write(out);
+            out.close();
+            JOptionPane.showMessageDialog(null, "Đã Xuất file thành công", "Thông báo",JOptionPane.OK_CANCEL_OPTION );
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
         });
      }

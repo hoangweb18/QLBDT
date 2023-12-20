@@ -4,13 +4,16 @@
  */
 package com.priot4all.quanlybandienthoai.model;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.sql.Date;
+
+
 
 /**
  *
  * @author admin
  */
-public class QuanLyBH {
+public class QuanLyBH implements Serializable {
     private int idBill;
     private int idClient;
     private int idSmartPhone;
@@ -18,13 +21,14 @@ public class QuanLyBH {
     private String NumberPhoneClient;
     private String namesmartPhone;
     private int quantityPurchased;
+    private String category;
     private int capacity;
     private String color;
-    private String Date;
+    private Date Date;
     private double price;
     private double totalPrice;
 
-    public QuanLyBH(int idBill, int idClient, int idSmartPhone, String nameClient, String NumberPhoneClient, String namesmartPhone, int quantityPurchased, int capacity, String color, String Date, double price, double totalPrice) {
+    public QuanLyBH(int idBill, int idClient, int idSmartPhone, String nameClient, String NumberPhoneClient, String namesmartPhone, int quantityPurchased,String category, int capacity, String color, Date Date, double price, double totalPrice) {
         this.idBill = idBill;
         this.idClient = idClient;
         this.idSmartPhone = idSmartPhone;
@@ -32,6 +36,7 @@ public class QuanLyBH {
         this.NumberPhoneClient = NumberPhoneClient;
         this.namesmartPhone = namesmartPhone;
         this.quantityPurchased = quantityPurchased;
+        this.category = category;
         this.capacity = capacity;
         this.color = color;
         this.Date = Date;
@@ -70,15 +75,14 @@ public class QuanLyBH {
         this.namesmartPhone = namesmartPhone;
     }
 
-
-    public String getDate() {
+    public Date getDate() {
         return Date;
     }
 
-    public void setDate(String Date) {
+    public void setDate(Date Date) {
         this.Date = Date;
     }
-
+    
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -119,6 +123,15 @@ public class QuanLyBH {
         this.NumberPhoneClient = NumberPhoneClient;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    
     public int getCapacity() {
         return capacity;
     }

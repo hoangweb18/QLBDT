@@ -4,6 +4,7 @@
  */
 package com.priot4all.quanlybandienthoai.dao;
 
+import com.priot4all.quanlybandienthoai.bean.QuanLyBHBean;
 import com.priot4all.quanlybandienthoai.bean.ThongTinDTBean;
 import java.util.List;
 
@@ -14,5 +15,17 @@ import java.util.List;
 public interface TrangChuDao {
     
     public List<ThongTinDTBean> getListByThongTinDT();
+    
+    public List<QuanLyBHBean> getListByQuanLyBHMonth();
+    
+    public List<QuanLyBHBean> getListByQuanLyBHYear();
+    
+    public int getQuantityInventory();
+    
+    public double getTotalRevenue();
+    
+    public int getTotalOrders();
+    
+    public int getTotalCustomers();
     
 }

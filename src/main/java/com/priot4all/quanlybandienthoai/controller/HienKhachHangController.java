@@ -56,7 +56,7 @@ public class HienKhachHangController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(jtfnameClient.getText().length() == 0){
-                    jlbCanhBao.setText("Nhập cho đủ thông tin vào");
+                    jlbCanhBao.setText("Vui lòng nhập đầy đủ thông tin");
                     System.out.println(".nhập cho đủ vào");
                 } else {
                     khachHang.setIdClient(Integer.parseInt(jtfidClient.getText()));

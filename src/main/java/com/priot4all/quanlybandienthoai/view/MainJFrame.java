@@ -60,10 +60,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jpnMenu.setBackground(new java.awt.Color(0, 51, 102));
 
-        jpnTrangChu.setBackground(new java.awt.Color(0, 51, 153));
+        jpnTrangChu.setBackground(new java.awt.Color(0, 51, 102));
 
         jlbTrangChu.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jlbTrangChu.setForeground(new java.awt.Color(0, 0, 153));
+        jlbTrangChu.setForeground(new java.awt.Color(255, 255, 255));
         jlbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/priot4all/quanlybandienthoai/images/iconcuahang.png"))); // NOI18N
         jlbTrangChu.setText("QUẢN LÝ BÁN HÀNG ĐIỆN THOẠI");
@@ -73,23 +73,23 @@ public class MainJFrame extends javax.swing.JFrame {
         jpnTrangChuLayout.setHorizontalGroup(
             jpnTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnTrangChuLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jlbTrangChu, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                .addGap(29, 29, 29))
+                .addContainerGap()
+                .addComponent(jlbTrangChu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39))
         );
         jpnTrangChuLayout.setVerticalGroup(
             jpnTrangChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnTrangChuLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(25, 25, 25)
                 .addComponent(jlbTrangChu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(36, 36, 36))
+                .addGap(26, 26, 26))
         );
 
-        jpnThongTinDT.setBackground(new java.awt.Color(0, 51, 153));
+        jpnThongTinDT.setBackground(new java.awt.Color(0, 51, 102));
 
         jlbThongTinDT.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jlbThongTinDT.setForeground(new java.awt.Color(255, 255, 255));
-        jlbThongTinDT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbThongTinDT.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbThongTinDT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/priot4all/quanlybandienthoai/images/phone.png"))); // NOI18N
         jlbThongTinDT.setText("Quản Lý Sản Phẩm");
 
@@ -97,77 +97,81 @@ public class MainJFrame extends javax.swing.JFrame {
         jpnThongTinDT.setLayout(jpnThongTinDTLayout);
         jpnThongTinDTLayout.setHorizontalGroup(
             jpnThongTinDTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnThongTinDTLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jlbThongTinDT, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnThongTinDTLayout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(jlbThongTinDT, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jpnThongTinDTLayout.setVerticalGroup(
             jpnThongTinDTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnThongTinDTLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jlbThongTinDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                .addContainerGap()
+                .addComponent(jlbThongTinDT, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jpnQuanLyBH.setBackground(new java.awt.Color(0, 51, 153));
+        jpnQuanLyBH.setBackground(new java.awt.Color(0, 51, 102));
         jpnQuanLyBH.setMinimumSize(new java.awt.Dimension(0, 0));
 
         jlbQuanLyBH.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jlbQuanLyBH.setForeground(new java.awt.Color(255, 255, 255));
+        jlbQuanLyBH.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbQuanLyBH.setIcon(new javax.swing.ImageIcon("D:\\java core\\Quanlybandienthoai\\src\\main\\resources\\com\\priot4all\\quanlybandienthoai\\images\\baseline_receipt_long_black_18dp.png")); // NOI18N
         jlbQuanLyBH.setText("Quản Lý Đơn Hàng");
 
         javax.swing.GroupLayout jpnQuanLyBHLayout = new javax.swing.GroupLayout(jpnQuanLyBH);
         jpnQuanLyBH.setLayout(jpnQuanLyBHLayout);
         jpnQuanLyBHLayout.setHorizontalGroup(
             jpnQuanLyBHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnQuanLyBHLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jlbQuanLyBH)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnQuanLyBHLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlbQuanLyBH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jpnQuanLyBHLayout.setVerticalGroup(
             jpnQuanLyBHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnQuanLyBHLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jlbQuanLyBH)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnQuanLyBHLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlbQuanLyBH, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jpnKhachHang.setBackground(new java.awt.Color(0, 51, 153));
+        jpnKhachHang.setBackground(new java.awt.Color(0, 51, 102));
 
         jlbKhachHang.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jlbKhachHang.setForeground(new java.awt.Color(255, 255, 255));
+        jlbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbKhachHang.setIcon(new javax.swing.ImageIcon("D:\\java core\\Quanlybandienthoai\\src\\main\\resources\\com\\priot4all\\quanlybandienthoai\\images\\baseline_recent_actors_black_24dp.png")); // NOI18N
         jlbKhachHang.setText("Khách Hàng");
 
         javax.swing.GroupLayout jpnKhachHangLayout = new javax.swing.GroupLayout(jpnKhachHang);
         jpnKhachHang.setLayout(jpnKhachHangLayout);
         jpnKhachHangLayout.setHorizontalGroup(
             jpnKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnKhachHangLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jlbKhachHang)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnKhachHangLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jlbKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jpnKhachHangLayout.setVerticalGroup(
             jpnKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnKhachHangLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jlbKhachHang)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jlbKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jpnMenuLayout = new javax.swing.GroupLayout(jpnMenu);
         jpnMenu.setLayout(jpnMenuLayout);
         jpnMenuLayout.setHorizontalGroup(
             jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnTrangChu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnMenuLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jpnKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(jpnMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpnThongTinDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpnQuanLyBH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpnThongTinDT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpnKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jpnMenuLayout.setVerticalGroup(
@@ -187,7 +191,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jpnView.setLayout(jpnViewLayout);
         jpnViewLayout.setHorizontalGroup(
             jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGap(0, 678, Short.MAX_VALUE)
         );
         jpnViewLayout.setVerticalGroup(
             jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

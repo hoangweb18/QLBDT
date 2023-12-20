@@ -17,11 +17,16 @@ public interface QuanLyBHDAO {
     
     public List<QuanLyBH> getAllLists();
     
+    public List<Integer> getIdsSmartPhoneList();
+    
+    public List<Integer> getIdClientList();
+    
     public int create(QuanLyBH quanLyBH);
     
-    public int update(QuanLyBH quanLyBH);
+    public int updateBill(QuanLyBH quanLyBH);
+    
+    public int createBill(QuanLyBH quanLyBH);
     
     public int deleteRecord(QuanLyBH quanLyBH);
     
-    public String getTenKhachHangByIdClient(int idClient); 
 }

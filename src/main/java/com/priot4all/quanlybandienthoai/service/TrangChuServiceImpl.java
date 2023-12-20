@@ -4,6 +4,7 @@
  */
 package com.priot4all.quanlybandienthoai.service;
 
+import com.priot4all.quanlybandienthoai.bean.QuanLyBHBean;
 import com.priot4all.quanlybandienthoai.bean.ThongTinDTBean;
 import com.priot4all.quanlybandienthoai.dao.ThongTinDTDAO;
 import com.priot4all.quanlybandienthoai.dao.ThongTinDTDAOImpl;
@@ -28,4 +29,33 @@ public class TrangChuServiceImpl implements TrangChuService {
         return trangChuDao.getListByThongTinDT();
     }
     
+    @Override
+    public List<QuanLyBHBean> getListByQuanLyBHMonth(){
+        return trangChuDao.getListByQuanLyBHMonth();
+    }
+    
+    @Override
+    public List<QuanLyBHBean> getListByQuanLyBHYear(){
+        return trangChuDao.getListByQuanLyBHYear();
+    }
+    
+    @Override
+    public int getQuantityInventory() {
+        return trangChuDao.getQuantityInventory();
+    }
+    
+    @Override
+    public double getTotalRevenue() {
+        return trangChuDao.getTotalRevenue();
+    }
+    
+    @Override
+    public int getTotalOrders(){
+        return trangChuDao.getTotalOrders();
+    }
+    
+    @Override
+    public int getTotalCustomers() {
+        return trangChuDao.getTotalCustomers();
+    }
 }

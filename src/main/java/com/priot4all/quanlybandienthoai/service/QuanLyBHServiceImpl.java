@@ -26,12 +26,36 @@ public class QuanLyBHServiceImpl implements QuanLyBHService {
         return quanLyBHDAO.getList();
     }
     @Override
-    public List<QuanLyBH> getAllList() {
-        return quanLyBHDAO.getList();
+    public List<QuanLyBH> getAllLists() {
+        return quanLyBHDAO.getAllLists();
+    }
+    @Override
+    public List<Integer> getIdsSmartPhoneList(){
+        return quanLyBHDAO.getIdsSmartPhoneList();
     }
     
     @Override
-    public String getTenKhachHangByIdClient(int idClient) {
-        return quanLyBHDAO.getTenKhachHangByIdClient(idClient);
+    public List<Integer> getIdClientList() {
+        return quanLyBHDAO.getIdClientList();
+    }
+    
+    @Override
+    public int create(QuanLyBH quanLyBH){
+        return quanLyBHDAO.create(quanLyBH);
+    }
+    
+    @Override
+    public int updateBill(QuanLyBH quanLyBH) {
+        return quanLyBHDAO.updateBill(quanLyBH);
+    }
+    
+    @Override
+    public int createBill(QuanLyBH quanLyBH) {
+        return quanLyBHDAO.createBill(quanLyBH);
+    }
+    
+    @Override
+    public int deleteRecord(QuanLyBH quanLyBH) {
+        return quanLyBHDAO.deleteRecord(quanLyBH);
     }
 }

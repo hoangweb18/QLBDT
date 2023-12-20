@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 public class DienThoaiController {
     
     private JButton btnSubmit;
-    private JSpinner jtfiIdSmartPhone;
+    private JLabel jtfiIdSmartPhone;
     private JTextField jtfnameSmartPhone;
     private JSpinner jtfquantityInventory;
     private JSpinner jtfprice;
@@ -34,7 +34,7 @@ public class DienThoaiController {
     private ThongTinDT thongTinDT = null;
     private ThongTinDTService thongTinDTService = null;
 
-    public DienThoaiController(JButton btnSubmit, JSpinner jtfiIdSmartPhone, JTextField jtfnameSmartPhone, JSpinner jtfquantityInventory, JSpinner jtfprice, JTextField jtfcategory, JSpinner jtfcapacity, JTextField jtfcolor, JLabel jlbCanhBao ) {
+    public DienThoaiController(JButton btnSubmit, JLabel jtfiIdSmartPhone, JTextField jtfnameSmartPhone, JSpinner jtfquantityInventory, JSpinner jtfprice, JTextField jtfcategory, JSpinner jtfcapacity, JTextField jtfcolor, JLabel jlbCanhBao ) {
         this.btnSubmit = btnSubmit;
         this.jtfiIdSmartPhone = jtfiIdSmartPhone;
         this.jtfnameSmartPhone = jtfnameSmartPhone;
@@ -52,7 +52,7 @@ public class DienThoaiController {
     
     public void setView(ThongTinDT thongTinDT){
         this.thongTinDT = thongTinDT;
-        jtfiIdSmartPhone.setValue(thongTinDT.getIdSmartPhone());
+        jtfiIdSmartPhone.setText(Integer.toString(thongTinDT.getIdSmartPhone()));
         jtfnameSmartPhone.setText(thongTinDT.getNameSmartPhone());
         jtfquantityInventory.setValue(thongTinDT.getQuantityInventory());
         jtfprice.setValue(thongTinDT.getPrice());
@@ -87,23 +87,14 @@ public class DienThoaiController {
                     int lastId = thongTinDTService.createOrUpdate(thongTinDT);
                     if(lastId > 0) {
                         thongTinDT.setIdSmartPhone(lastId);
-                        jtfiIdSmartPhone.setValue(lastId);
+                        jtfiIdSmartPhone.setText(Integer.toString(lastId));
                         System.out.println("Lasid" + lastId);
                         jlbCanhBao.setText("Cập nhật thành công");
+                    } else {
+                        jlbCanhBao.setText("Cập nhật không thành công");
                     }
                 }
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                
-            }
-            
+            }       
         });
         
     }
